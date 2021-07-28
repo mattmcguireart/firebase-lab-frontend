@@ -2,7 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-'on':
+"on":
   push:
     branches:
       - main
@@ -12,11 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
-      env:
-      REACT_APP_API_BASE_URL:https://us-central1-fir-lab-c2c28.cloudfunctions.net/api/shoutouts
+        env: REACT_APP_API_BASE_URL:https://us-central1-fir-lab-c2c28.cloudfunctions.net/api/shoutouts
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIR_LAB_C2C28 }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_FIR_LAB_C2C28 }}"
           channelId: live
           projectId: fir-lab-c2c28
