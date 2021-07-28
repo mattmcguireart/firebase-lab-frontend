@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
-        env: REACT_APP_API_BASE_URL:https://us-central1-fir-lab-c2c28.cloudfunctions.net/api/shoutouts
+        env:
+          REACT_APP_API_BASE_URL: https://us-central1-fir-lab-c2c28.cloudfunctions.net/api/shoutouts
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
